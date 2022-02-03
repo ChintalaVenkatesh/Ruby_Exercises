@@ -11,3 +11,4 @@ string_array.inject(hash_array) { |x,y|  x[y.length] ||= []; x[y.length] << y;x 
 
 print hash_array.sort.to_h
 
+#end

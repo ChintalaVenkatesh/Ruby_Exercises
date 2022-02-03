@@ -13,3 +13,5 @@ puts " Please provide an input"
 line=gets.chomp
 Input=String.new
 print Input.palindrome(line)
+
+#end

@@ -10,3 +10,4 @@ def pascal(n)
   line=gets.chomp.to_i
   pascal(line){|row| puts row.join("").center(0)}
 
+  #end

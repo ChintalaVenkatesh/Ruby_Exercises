@@ -10,3 +10,5 @@ class User
 puts "Please provide an input"
 line=gets.chomp
 puts "#{User.new(line)}"  
+
+#end

@@ -35,3 +35,5 @@ end
     
 case1=Bike.new("apache" , 58000 ,"The Bike showroom" ,12.5)
 puts case1.print_details
+
+#end
