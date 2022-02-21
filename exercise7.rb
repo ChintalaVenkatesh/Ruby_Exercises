@@ -1,14 +1,9 @@
-class User
-    def initialize(name)
-     @name = name
-    end
-  
+class String
     def to_s
-     "User: #{@name.swapcase}"
+     string=self.swapcase
+     return string
     end
-  end
+end
 puts "Please provide an input"
 line=gets.chomp
-puts "#{User.new(line)}"  
-
-#end
+print line.to_s
