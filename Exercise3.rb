@@ -4,7 +4,7 @@ def fib_upto(max)
       yield i1
       i1, i2 = i2, i1+i2
     end
- end
- puts " enter max"
- max= gets.chomp.to_i
- fib_upto(max) {|f| print f, " "}
+end
+puts " enter max"
+max= gets.chomp.to_i
+fib_upto(max) {|f| print f, " "}
