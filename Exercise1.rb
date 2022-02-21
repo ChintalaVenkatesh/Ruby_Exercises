@@ -1,8 +1,10 @@
 def count_letters(s)
-    Hash[s.delete(' ').split('').group_by{ |c| c }.map{ |k, v| [k, v.size] }]
+    count = Hash.new(0)
+    s.split('').each do |i|
+      count[i] = count[i] + 1 if i.match?(/[A-Za-z]/)
+    end
+    puts count
 end
 puts "Enter string"
-line=gets
+line=gets.chomp
 print count_letters(line)
-
-#end
