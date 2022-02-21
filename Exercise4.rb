@@ -1,8 +1,9 @@
 class String
-  def palindrome(variable)
-    if variable==' '
+  def palindrome?
+    str=self.downcase
+    if str==' '
       puts "Please provide an input"
-    elsif variable.reverse == variable 
+    elsif str.reverse == str
       puts " Input string is a palindrome."
     else 
       puts "Input string is not a palindrome."
@@ -12,6 +13,4 @@ end
 puts " Please provide an input"
 line=gets.chomp
 Input=String.new
-print Input.palindrome(line)
-
-#end
+print Input.palindrome?
