@@ -1,56 +1,37 @@
-#incomplete
-class Sales_tax
-    attr_accessor :name , :if_imported , :sales_tax_applicable , :price
+class Sales_Tax
     BASIC = 0.10
     IMPORTED = 0.05
     BOTH = BASIC+IMPORTED
-    array1=[]
-    array2=[]
+    array1= {}
+    line='y'
+    while line=='y'
+        puts"Name of product: "
+        @name=gets.chomp
+        puts "imported?:"
+        @if_imported=gets.chomp
+        puts "exempted from sales tax?:"
+        @if_sales_tax_applicable=gets.chomp
+        puts "price:"
+        @price=gets.chomp.to_i
 
-    def input_items
-        puts "Do you want to add more items to your list(y/n):"
-        line=gets.chomp
-        array1=[]
-        if line=="y"
-            puts"Name of product: "
-            @name=gets.chomp
-            puts "imported?:"
-            @if_imported=gets.chomp
-            puts "exempted from sales tax?:"
-            @sales_tax_applicable=gets.chomp
-            puts "price:"
-            @price=gets.chomp
-            array1.push(name)
-        else
-            exit
+        if @if_imported=='yes' && @if_sales_tax_applicable=='yes'
+        @price += @price * 0.05
+        elsif @if_imported=='yes' && @if_sales_tax_applicable=='no'
+        @price += @price * 0.15
+        elsif @if_imported=='no' && @if_sales_tax_applicable=='yes'
+        @price += @price*0.10
+        elsif @if_imported=='no' && @if_sales_tax_applicable=='no'
+        @price += @price*0
         end
-        puts "#{array1[0]}"
+    
+        array1[@name] = @price
+        print 'Do you want to add more items to your list(y/n): '
+        line = gets.chomp
     end
 
-    def caluculate
-        array2=[]
-        if @if_imported=="yes" && @if_sales_tax_applicable=="yes"
-            final_price= price+(price*BOTH)
-            array2.push(final_price)
-        elsif @if_imported=="yes" && @if_sales_tax_applicable=="no"
-            final_price= price+(price*IMPORTED)
-            array2.push(final_price)
-        elsif @if_imported=="no" && @if_sales_tax_applicable=="yes"
-            final_price=(price+price*BASIC)
-            array2.push(final_price)
-        elsif @if_imported=="no" && @if_sales_tax_applicable=="no"
-            final_price=price
-            array2.push(final_price)
-        end
-        puts "#{array2[0]}"
-
-    end
-
-    def display_items
-        puts " #{array1[0]} and : #{array2[0]} "
-    end
+    p array1
+    print 'Total Cost: '
+    print array1.inject(0) { |x, y| x+= y[1] }
 end
 
-x=Sales_tax.new
-x.input_items
-x.caluculate
+x= Sales_Tax.new
