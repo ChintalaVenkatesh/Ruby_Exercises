@@ -20,6 +20,8 @@ end
 
 p array1.power_of_array(p)
 
+#end
+
 
 
 
