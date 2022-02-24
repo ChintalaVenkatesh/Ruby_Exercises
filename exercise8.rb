@@ -4,22 +4,11 @@ class Array
  end
 end
 
-puts"enter power"
-p=gets.chomp.to_i
-puts 'Please provide an input'
-array1 = Array.new()
-array1=[]
-puts"enter array_size"
-i=gets.chomp.to_i
-while i>0
-  puts "Enter number"
-  num = gets.chomp.to_i
-  array1.push(num)
-  i = i-1
-end
-
+array1 = ARGV[0]
+p = ARGV[1].to_i
+array1 = array1.split(/\D+/).map(&:to_i)
+array1.delete_at(0)
 p array1.power_of_array(p)
-
 #end
 
 
