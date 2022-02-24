@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 def reverse(input)
-    input.split.reverse.join(" ")
+  input.split.reverse.join(' ')
 end
 
-puts " please provide an input"
-input=gets.chomp
+puts ' please provide an input'
+input = gets.chomp
 print reverse(input)
 
