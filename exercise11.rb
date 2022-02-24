@@ -1,13 +1,19 @@
-def pascal(n)
-    raise ArgumentError, "must be positive" if n < 1
-    yield ar = [1]
-    (n-1).times do
-      ar.unshift(0).push(0) 
-      yield ar = ar.each_cons(2).map(&:sum)
-    end
+def fact(n)
+  x = 1
+  (1..n).each do |i|
+    x *= i
   end
-  puts "provide input"
-  line=gets.chomp.to_i
-  pascal(line){|row| puts row.join("").center(0)}
+  x
+end
+def pascal(n)
+  (0..n).each do |k|
+    yield(fact(n) / (fact(k) * fact(n - k)))
+  end
+end
+n= gets.chomp.to_i
+m=n-1
+(0..m).each do |i|
+  pascal(i) { |x| print "#{x} " }
+  print "\n"
+end
 
-  #end
