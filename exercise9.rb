@@ -1,14 +1,12 @@
-puts "Please provide an input"
 input = gets.chomp
 string_array = []
 input.split(" ").each do |i|
     string_array.push(i)
 end
-
 hash_array= Hash.new
-
-string_array.inject(hash_array) { |x,y|  x[y.length] ||= []; x[y.length] << y;x }
+string_array.each_with_object(hash_array) do |x, y|
+    y[x.length] ||= []
+    y[x.length] << x
+end
 
 print hash_array.sort.to_h
-
-#end
